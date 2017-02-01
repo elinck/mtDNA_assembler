@@ -23,10 +23,10 @@ $ bash mtDNA_assembler.sh
 ```
   
 The script will proceed through four steps: 
-1. blatq will search for reads that align with your reference mtDNA genome and create a list of matching `.fastq` IDs;  
-2. excerptByIDs will take this list, extract matching sequences, and collate them into seeds;  
+1. blatq will search for reads that align with your reference mtDNA genome and create a list of matching `.fastq` IDs;
+2. excerptByIDs will take this list, extract matching sequences, and collate them into seeds;
 3. SPAdes will run an initial assembly on these seeds to increase downstream efficiency;
-4. The PRICE assembler will iteratively map reads to the edge of seeds and then contigs, merging identical sequences. 
+4. The PRICE assembler will iteratively map reads to the edge of seeds and then contigs, merging identical sequences.
   
 Ultimately, this should output a `.fasta` for each cycle, with the terminal cycle representing the most complete assembly (e.g., `EL_hyRAD_001A_mtDNA.cycle30.fa`).  
   
