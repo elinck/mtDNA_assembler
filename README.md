@@ -6,7 +6,7 @@ This a working repository for development of a Python wrapper script to automate
 
 **Script:** mtDNA_assembler.sh  
 **Description:**  This script should search for mtDNA reads, create a seed file, and start a PRICE assembly of mtDNA genomes
-**Requires:** [blatq](https://github.com/calacademy-research/BLATq); [excerptByIDs](https://github.com/calacademy-research/excerptByIDs)(Go programming language must be installed to run); [Price](http://derisilab.ucsf.edu/software/price/); [SPAdes](http://bioinf.spbau.ru/spades)
+**Requires:** [blatq](https://github.com/calacademy-research/BLATq); [excerptByIDs](https://github.com/calacademy-research/excerptByIDs) (The [Go programming language](https://golang.org/https://golang.org/) must be installed to run this); [Price](http://derisilab.ucsf.edu/software/price/); [SPAdes](http://bioinf.spbau.ru/spades)
 **Authorship:** Originally Jack Dumbacher; modified and annotated by Ethan Linck  
 
 #### Usage
