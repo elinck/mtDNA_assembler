@@ -31,5 +31,5 @@ The script will proceed through four steps:
   
 Ultimately, this should output a `.fasta` for each cycle, with the terminal cycle representing the most complete assembly (e.g., `EL_hyRAD_001A_mtDNA.cycle30.fa`).  
   
-**Script:** mtDNA_assembler.py 
+**Script:** mtDNA_assembler.py   
 **Description:** A work in progress...
