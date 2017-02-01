@@ -22,7 +22,8 @@ Then, simply execute the script:
 $ bash mtDNA_assembler.sh
 ```
   
-The script will proceed through four steps: 
+The script will proceed through four steps:
+  
 1. blatq will search for reads that align with your reference mtDNA genome and create a list of matching `.fastq` IDs;
 2. excerptByIDs will take this list, extract matching sequences, and collate them into seeds;
 3. SPAdes will run an initial assembly on these seeds to increase downstream efficiency;
