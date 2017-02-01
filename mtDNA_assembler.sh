@@ -1,8 +1,8 @@
 #!/bin/sh
 
-#### mtDNA_assembler.sh: a shell script for automating assembly of mtDNA genomes from off-target reads in hybridization capture experiemtns ####
+#### mtDNA_assembler.sh: a shell script for automating assembly of mtDNA genomes from off-target reads in hybridization capture experiments
 # Authorship: J. Dumbacher; modified by E. Linck
-# Description: this script should search for mtDNA reads, create a seed file, and start a PRICE assembly of mtDNA from RADseq data
+# Description: this script should search for mtDNA reads, create a seed file, and start a PRICE assembly of mtDNA genomes
 # Requirements: blatq (https://github.com/calacademy-research/BLATq); (https://github.com/calacademy-research/excerptByIDs; requires Go language installed);
 #				Price (http://derisilab.ucsf.edu/software/price/); SPAdes (http://bioinf.spbau.ru/spades)
 # Useage: 1. Edit paths for forward, reverse, and unpaired read IDs for one sample throughout script
@@ -23,7 +23,7 @@ blatq -t=dna /home/elinck/syma_mitogenomes/t_sanctus_ref.fasta /home/elinck/syma
 
 echo "$@" Blatq done
 
-# 2. Excerpt reads by id:
+# 2. Excerpt reads by ID:
 
 echo "$@"Now starting to excerpt reads with blatq hits by ID
 
@@ -43,10 +43,12 @@ grep -c "@" /home/elinck/syma_mitogenomes/assemblies/EBL001A_SEEDS.fastq
 
 # 3. For larger read sets, assemble initial reads using spades:
 
+echo "$@"Now starting SPAdes assembly...
+
 python /data/jdumbacher/SPAdes-3.9.0-Linux/bin/spades.py --careful -s /home/elinck/syma_mitogenomes/assemblies/EBL001A_SEEDS.fastq -o /home/elinck/syma_mitogenomes/assemblies/EBL001A_SEEDS_assembled
 
 # 4. Assemble mtDNA using PRICE
 
-echo "$@"Now starting PRICE assembly using reads 
+echo "$@"Now starting PRICE assembly...
 
 PriceTI -fp /home/elinck/syma_mitogenomes/data/EL_hyRAD_001A_S29_1_final.fq /home/elinck/syma_mitogenomes/data/EL_hyRAD_001A_S29_2_final.fq 235 -icf /home/elinck/syma_mitogenomes/assemblies/EBL001A_SEEDS.fastq 1 1 5  -mol 30 -mpi 90 -MPI 85 -nc 30 -a 8 -target 85 1 1 1 -o /home/elinck/syma_mitogenomes/assemblies/EL_hyRAD_001A_mtDNA.fa -o /home/elinck/syma_mitogenomes/assemblies/EL_hyRAD_001A_mtDNA.priceq -maxHp 25 -logf /home/elinck/syma_mitogenomes/assemblies/EL_hyRAD_001A_mtDNA.log
